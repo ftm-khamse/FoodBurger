@@ -1,0 +1,12 @@
+$color-bg1:#fdf6ec;
+$color-bg2:#f5e6d3;
+$color-bg3:#f0d9b5;
+$color-primary:#d35400;
+$color-secondry:#27ae60;
+$color-accent:#c0392b;
+$color-text:#2c2c2c;
+$color-hover:#f39c12;
+
+body{
+    background: linear-gradient(135deg,$color-bg1,$color-bg2,$color-bg3);
+}
