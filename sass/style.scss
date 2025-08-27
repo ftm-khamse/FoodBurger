@@ -1,12 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Chewy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+//basic styles and colors
+
 $color-bg1:#fdf6ec;
 $color-bg2:#f5e6d3;
 $color-bg3:#f0d9b5;
+$color-header:#dbaa69;
 $color-primary:#d35400;
 $color-secondry:#27ae60;
 $color-accent:#c0392b;
 $color-text:#2c2c2c;
 $color-hover:#f39c12;
 
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
+    font-family: "Roboto", sans-serif;
+    text-transform: capitalize;
+    line-height: 1.5rem;
+    color: $color-text;
     background: linear-gradient(135deg,$color-bg1,$color-bg2,$color-bg3);
+    transition: all .7s;
+    scroll-behavior: smooth;
+    padding-top: 70px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    &:hover{
+        color: $color-accent;
+    }
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button{
+    cursor: pointer;
+}
+
+h1,h2{
+     font-family: "Bangers", system-ui;
+    //  font-family: "Chewy", system-ui;
+}
+
+section{
+    padding: 2rem 9%;
+}
+
+//**** header styles ****
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 4rem;
+    background: $color-header;
+    box-shadow: -1px 2px 59px -2px rgba(133,130,46,0.75);
+    -webkit-box-shadow: -1px 2px 59px -2px rgba(133,130,46,0.75);
+    -moz-box-shadow: -1px 2px 59px -2px rgba(133,130,46,0.75);
+   
+   .nav{
+    display: flex;
+    gap: 2rem;
+
+    a{
+        font-weight: bold;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    
+   }
+   
+   .icons{
+    display: flex;
+    gap: 1.2rem;
+   }
+}
+
+
+@media (max-width:768px){
+    .header{
+        .nav{
+              position: absolute;
+              top: 110%;
+              flex-direction: column;
+              width: 80%;
+              align-items: center;
+              padding: 1.5rem 0;
+              overflow: hidden;
+              gap: .5rem;
+
+             a{
+                background: $color-bg3;
+                width: 100%;
+                padding: 1rem;
+                clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+                transition: all .5s;
+
+                &.active{
+                  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                }
+             }
+        }
+    }
 }

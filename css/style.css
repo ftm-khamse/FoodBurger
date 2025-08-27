@@ -1,5 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Chewy&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  font-family: "Roboto", sans-serif;
+  text-transform: capitalize;
+  line-height: 1.5rem;
+  color: #2c2c2c;
   background: linear-gradient(135deg, #fdf6ec, #f5e6d3, #f0d9b5);
+  transition: all 0.7s;
+  scroll-behavior: smooth;
+  padding-top: 70px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a:hover {
+  color: #c0392b;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1, h2 {
+  font-family: "Bangers", system-ui;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 4rem;
+  background: #dbaa69;
+  box-shadow: -1px 2px 59px -2px rgba(133, 130, 46, 0.75);
+  -webkit-box-shadow: -1px 2px 59px -2px rgba(133, 130, 46, 0.75);
+  -moz-box-shadow: -1px 2px 59px -2px rgba(133, 130, 46, 0.75);
+}
+.header .nav {
+  display: flex;
+  gap: 2rem;
+}
+.header .nav a {
+  font-weight: bold;
+}
+.header .nav a:hover {
+  text-decoration: underline;
+}
+.header .icons {
+  display: flex;
+  gap: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .header .nav {
+    position: absolute;
+    top: 110%;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    padding: 1.5rem 0;
+    overflow: hidden;
+    gap: 0.5rem;
+  }
+  .header .nav a {
+    background: #f0d9b5;
+    width: 100%;
+    padding: 1rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    transition: all 0.5s;
+  }
+  .header .nav a.active {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
