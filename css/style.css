@@ -45,6 +45,18 @@ section {
   padding: 2rem 9%;
 }
 
+.btn {
+  background: #d35400;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+}
+.btn:hover {
+  color: white;
+  background: #f39c12;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -73,6 +85,106 @@ section {
   display: flex;
   gap: 1.2rem;
 }
+.header .icons #bar-btn {
+  display: none;
+}
+.header .shopping-cart {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  padding: 0 2rem;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  transition: all 0.5s;
+}
+.header .shopping-cart.active {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.header .shopping-cart .shop-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  letter-spacing: 0.25rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+.header .shopping-cart .shop-title i {
+  background: #fdf6ec;
+  padding: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.header .shopping-cart .box-container {
+  margin-bottom: 1rem;
+}
+.header .shopping-cart .box-container .box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+  background: white;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.25rem;
+}
+.header .shopping-cart .box-container .box img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1rem;
+}
+.header .shopping-cart .box-container .box .box-content {
+  font-size: 0.75rem;
+}
+.header .shopping-cart .box-container .box .box-content .box-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.header .shopping-cart .box-container .box .box-content .box-title i {
+  color: #f39c12;
+}
+.header .shopping-cart .box-container .box .box-content .burger-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.header .shopping-cart .box-container .box .box-content .burger-price p {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.header .shopping-cart .box-container .box .box-content .burger-price p i {
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+.header .shopping-cart .box-container .box .box-content .burger-price p i:hover {
+  color: #c0392b;
+}
+.header .shopping-cart .total-container {
+  background: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 1.5rem;
+  font-size: 0.9rem;
+}
+.header .shopping-cart .total-container p {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0.25rem 0;
+}
+.header .shopping-cart .total-container p span {
+  font-weight: bold;
+}
+.header .shopping-cart .cart-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+}
 
 @media (max-width: 768px) {
   .header .nav {
@@ -94,6 +206,9 @@ section {
   }
   .header .nav a.active {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .header .icons #bar-btn {
+    display: block;
   }
 }
 
