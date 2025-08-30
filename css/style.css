@@ -185,6 +185,39 @@ section {
   width: 100%;
   margin-top: 1.5rem;
 }
+.header .search {
+  position: absolute;
+  top: 105%;
+  width: 80vw;
+  background: rgb(240, 216, 185);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  transition: all 0.5s;
+}
+.header .search.active {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+.header .search input {
+  background: rgb(240, 216, 185);
+  width: 100%;
+  outline: none;
+  padding: 0.8rem;
+  border: none;
+  text-transform: inherit;
+  letter-spacing: 0.15rem;
+}
+.header .search label {
+  cursor: pointer;
+  margin-right: 1rem;
+  color: #d35400;
+}
+.header .search label:hover {
+  color: #f39c12;
+}
 
 @media (max-width: 768px) {
   .header .nav {
