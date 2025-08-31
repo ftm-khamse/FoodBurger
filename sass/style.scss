@@ -11,6 +11,7 @@ $color-secondry:#27ae60;
 $color-accent:#c0392b;
 $color-text:#2c2c2c;
 $color-hover:#f39c12;
+$color-btn:#f0dd36;
 
 *,
 *::after,
@@ -29,7 +30,10 @@ body{
     transition: all .7s;
     scroll-behavior: smooth;
     padding-top: 70px;
+
 }
+
+
 
 a{
     text-decoration: none;
@@ -49,11 +53,14 @@ img{
 
 button{
     cursor: pointer;
+    font-family: "Chewy", system-ui;
+     letter-spacing: .15rem;
 }
 
-h1,h2{
-     font-family: "Bangers", system-ui;
-    //  font-family: "Chewy", system-ui;
+h1,h2,h3{
+    //  font-family: "Bangers", system-ui;
+     font-family: "Chewy", system-ui;
+     letter-spacing: .25rem;
 }
 
 section{
@@ -61,7 +68,7 @@ section{
 }
 
 .btn{
-    background: $color-primary;
+    background: $color-btn;
     padding: .7rem;
     border: none;
     border-radius: 1rem;
@@ -70,6 +77,17 @@ section{
     &:hover{
         color: white;
         background: $color-hover;
+    }
+}
+
+.heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    img{
+        width: 10rem;
     }
 }
 
@@ -260,6 +278,119 @@ section{
    }
 }
 
+// ==== hero styles =====
+.hero{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap:2rem;
+
+    .hero-content{
+        text-align: center;
+        h1{
+            margin-bottom: 1.5rem;
+            letter-spacing: .25rem;
+        }
+        p{
+            margin-bottom: 1.5rem;
+        }
+        
+       }
+}
+
+// ===== services styles =====
+.services{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+    .box{
+        text-align: center;
+        padding-bottom: 2rem;
+        background: $color-header;
+        padding: 1rem;
+        border-radius: 1.5rem;
+        box-shadow: 14px 14px 28px 0px rgba(0, 0, 0, 0.5);
+        /* For older browsers */
+       -webkit-box-shadow: 14px 14px 28px 0px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow: 14px 14px 28px 0px rgba(0, 0, 0, 0.5);
+
+        i{
+            background: $color-btn;
+            color: rgba(0,0,0,.5);
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h3{
+            margin: .7rem 0;
+        }
+
+        p{
+            font-size: 1rem;
+        }
+    }
+}
+
+// ===== menu styles =====
+.menu{
+    .product-container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        align-items: center;
+        justify-items: center;
+        gap: 2rem;
+        text-align: center;
+        margin-top: 1.5rem;
+
+        .product{
+            background: $color-bg3;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+           box-shadow: 6px 7px 29px -2px rgba(0, 0, 0, 0.5);
+           /* For older browsers */
+          -webkit-box-shadow: 6px 7px 29px -2px rgba(0, 0, 0, 0.5);
+          -moz-box-shadow: 6px 7px 29px -2px rgba(0, 0, 0, 0.5);
+          
+
+          &:hover img{
+            transform: translatey(-2rem);
+            transition: all .7s;
+          }
+
+            img{
+            width: 16rem;
+            height: 16rem;
+            margin-bottom: 1rem;
+        }
+        .icons{
+            color: $color-primary;
+            margin-bottom: .5rem;
+        }
+
+        .price{
+            margin: .5rem 0;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-product{
+            padding: .5rem 1rem;
+            border: 2px solid $color-primary;
+            text-transform: inherit;
+            background:$color-bg3;
+
+            &:hover{
+                color: white;
+                background: $color-primary;
+            }
+        }
+        }
+    }
+}
+
 
 @media (max-width:768px){
     .header{
@@ -291,6 +422,28 @@ section{
             #bar-btn{
                 display: block;
               }
+        }
+    }
+    .hero{
+        grid-template-columns: repeat(1,1fr);
+       
+    }
+
+    .services{
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .menu{
+        .product-container{
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+}
+
+@media (max-width:550px){
+    .menu{
+        .product-container{
+            grid-template-columns: repeat(1,1fr);
         }
     }
 }
