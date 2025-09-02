@@ -25,8 +25,3 @@ searchBtn.addEventListener('click',() => {
     item.forEach((item ) => item.classList.remove('active'));
 });
 
-window.onscroll = () => {
-    search.classList.remove('active');
-    shopCart.classList.remove('active');
-    item.forEach((item ) => item.classList.remove('active'));
-}
