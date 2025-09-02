@@ -115,10 +115,11 @@ section {
   display: none;
 }
 .header .shopping-cart {
+  background: #f0d9b5;
   position: absolute;
   top: 120%;
   right: 0;
-  padding: 0 2rem;
+  padding: 2rem;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   transition: all 0.5s;
 }

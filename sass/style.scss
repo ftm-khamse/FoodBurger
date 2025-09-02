@@ -20,7 +20,25 @@ $color-btn:#f0dd36;
     padding: 0;
     box-sizing: border-box;
 }
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+    overflow-x: hidden;
 
+    &::-webkit-scrollbar{
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track{
+       background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb{
+       background: $yellow;
+       border-radius: 5rem;
+    }
+}
 body{
     font-family: "Roboto", sans-serif;
     text-transform: capitalize;
@@ -28,8 +46,7 @@ body{
     color: $color-text;
     background: linear-gradient(135deg,$color-bg1,$color-bg2,$color-bg3);
     transition: all .7s;
-    scroll-behavior: smooth;
-    padding-top: 70px;
+   
 
 }
 
@@ -64,8 +81,7 @@ h1,h2,h3{
 }
 
 section{
-    padding: 2rem 9%;
-    margin-bottom: 1.5rem;
+    padding:2rem 9%;
 }
 
 .btn{
@@ -110,15 +126,16 @@ section{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     position: fixed;
-    top: 0;
+    top: 0;left: 0;right: 0;
     z-index: 1000;
-    width: 100%;
-    height: 4rem;
+    padding: 2rem 9%;
     background: $color-header;
     box-shadow: -1px 2px 59px -2px rgba(133,130,46,0.75);
     -webkit-box-shadow: -1px 2px 59px -2px rgba(133,130,46,0.75);
     -moz-box-shadow: -1px 2px 59px -2px rgba(133,130,46,0.75);
+   
    
    .nav{
     display: flex;
@@ -143,9 +160,10 @@ section{
    }
 
    .shopping-cart{
+    background: $color-bg3;
     position: absolute;
-    top: 120%;right: 0;
-    padding: 0 2rem;
+    top: 120%; right:0;
+    padding: 2rem;
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
     transition: all .5s;
 
