@@ -65,6 +65,12 @@ const products = [
         name:'cheese burger',
         price:35.85,
         image:'images/product6.webp'
+    },
+    {
+        id:6,
+        name:'cheese burger',
+        price:25.95,
+        image:'images/product7.webp'
     }
 ];
 
@@ -73,7 +79,7 @@ function renderProduct() {
     products.forEach((item,index)=> {
         const product = document.createElement("div");
         product.classList.add("product");
-        product.innerHTML = `
+        product.innerHTML += `
         <img src=${item.image} alt="">
                 <div class="icons">
                     <i class="fas fa-star"></i>
@@ -86,6 +92,11 @@ function renderProduct() {
                 <div class="price">$${item.price}</div>
                 <button class="btn-product">add to cart</button>
         `
+        product.querySelector('.btn-product').addEventListener('click',(e)=>{
+            e.preventDefault();
+            addToCart(index);
+            document.querySelector('.shopping-cart').classList.add('active');
+        });
 
         container.appendChild(product);
     });
@@ -93,3 +104,94 @@ function renderProduct() {
 }
 
 renderProduct();
+
+let cart = {
+    items:[],
+    total:0
+}
+
+function renderCartItems(){
+    const cartDiv = document.querySelector('.header .shopping-cart .box-container');
+    cartDiv.innerHTML = '';
+    const totalPriceEl = document.querySelector('.total-container');
+
+    let totalPrice = 0;
+
+    if(cart.items.length === 0){
+        cartDiv.innerHTML = 
+        '<h2 class="box" style="font-size:1rem">there is nothing !</h2>'
+    }
+
+    cart.items.forEach((item) =>{
+        const box = document.createElement("div");
+        box.classList.add('box');
+        totalPrice += item.total;
+        box.innerHTML += 
+        `
+         <img src=${item.image} alt="">
+                    <div class="box-content">
+                        <div class="box-title">
+                            <h3>${item.name}</h3>
+                            <p class="star">4.3<i class="fas fa-star"></i></p>
+                        </div>
+                        <div class="burger-price">
+                            <p>$ ${item.price}</p>
+                            <p class="quantity">
+                                <i class="fas fa-plus"></i>${item.qty}
+                                <i class="fas fa-minus"></i>
+                            </p>
+                        </div>
+                    </div>
+        `
+        cartDiv.appendChild(box);
+    });
+
+    totalPriceEl.innerHTML =
+     `
+     <p>order amount <span>$ ${totalPrice}</span></p>
+     <p>fee for bringing<span>$4.00</span></p>
+     <p class="total">total payment<span>$ ${totalPrice + 4.00}</span></p>
+     `;
+
+}
+renderCartItems();
+
+function addToCart(productIndex){
+    const product = products[productIndex];
+
+    let existingProduct = false ;
+
+   let newCartItems = cart.items.reduce((state , item) => {
+        if (item.id === product.id){
+            existingProduct = true ;
+
+            const newItem = {
+                ...item,
+                qty : item.qty + 1 ,
+                total:(item.qty + 1)*item.price
+            }
+
+            return [...state,newItem]
+        }
+        return[...state,item]
+    } , [])
+
+    if (!existingProduct){
+        newCartItems.push({
+            ...product,
+            qty:1,
+            total:product.price
+        })
+    }
+
+    
+    
+    cart = {
+        ...cart,
+        items:newCartItems
+    }
+
+    renderCartItems();
+    
+    
+}
