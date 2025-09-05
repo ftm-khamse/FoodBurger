@@ -137,14 +137,21 @@ function renderCartItems(){
                         <div class="burger-price">
                             <p>$ ${item.price}</p>
                             <p class="quantity">
-                                <i class="fas fa-plus"></i>${item.qty}
-                                <i class="fas fa-minus"></i>
+                                <i class="fas fa-plus"
+                                onClick="findIndex(${item.id})"></i>
+                                ${item.qty}
+                                <i class="fas fa-minus"
+                                onClick="removeFromCart(${item.id})"
+                                ></i>
                             </p>
                         </div>
                     </div>
         `
+
         cartDiv.appendChild(box);
     });
+
+     
 
     totalPriceEl.innerHTML =
      `
@@ -156,10 +163,24 @@ function renderCartItems(){
 }
 renderCartItems();
 
+function findIndex(id){
+ 
+    products.forEach((item)=> {
+        if(item.id === id){
+          
+            addToCart(products.indexOf(item));
+           
+        }
+    });
+}
+
 function addToCart(productIndex){
+     
+
     const product = products[productIndex];
 
     let existingProduct = false ;
+    
 
    let newCartItems = cart.items.reduce((state , item) => {
         if (item.id === product.id){
@@ -182,16 +203,43 @@ function addToCart(productIndex){
             qty:1,
             total:product.price
         })
-    }
 
-    
-    
+    }
+  
     cart = {
         ...cart,
         items:newCartItems
     }
 
     renderCartItems();
-    
-    
 }
+
+function removeFromCart(id){
+  let newCardItems =cart.items.reduce((state,item)=>{
+    if(item.id === id){
+        const newItem = {
+            ...item,
+            qty:item.qty-1,
+            total:(item.qty-1)*item.price
+        }
+        return [...state,newItem]
+    }
+    return [...state,item]
+  },[])
+
+  const result = newCardItems.filter((item)=>{
+    return item.qty >0 ;
+  })
+
+  
+  
+
+  cart = {
+        ...cart,
+        items:result
+    }
+
+    renderCartItems()
+   
+}
+
