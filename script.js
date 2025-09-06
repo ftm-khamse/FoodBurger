@@ -44,31 +44,31 @@ const products = [
     },
     {
         id:2,
-        name:'cheese burger',
+        name:'chicken burger',
         price:18.75,
         image:'images/product3.webp'
     },
     {
         id:3,
-        name:'cheese burger',
+        name:'double crispy burger',
         price:25.25,
         image:'images/product4.webp'
     },
     {
         id:4,
-        name:'cheese burger',
+        name:'big mac burger',
         price:35.00,
         image:'images/product5.webp'
     },
     {
         id:5,
-        name:'cheese burger',
+        name:'crispy chicken sandwich',
         price:35.85,
         image:'images/product6.webp'
     },
     {
         id:6,
-        name:'cheese burger',
+        name:'hot wings burger',
         price:25.95,
         image:'images/product7.webp'
     }
@@ -243,3 +243,37 @@ function removeFromCart(id){
    
 }
 
+// search form operations
+const searchForm = document.getElementById('search-form');
+const searchPlace = document.querySelector('.search-place');
+function searchOperations(e){
+    const query = e.target.value.toLowerCase();
+
+    if (query === '') {
+    searchPlace.classList.remove('active');
+    searchPlace.innerHTML = '';
+    return;
+    }
+    searchPlace.innerHTML = '';
+    let found = false;
+
+    products.forEach((item)=>{
+       
+            if(item.name.toLowerCase().includes(query)){
+                found = true;
+                const resault =document.createElement('p');
+                resault.textContent = item.name;
+                searchPlace.appendChild(resault);
+                
+                
+            }
+    });
+    if(found){
+        searchPlace.classList.add('active');
+    }else{
+        searchPlace.classList.remove('active');
+    }
+    
+}
+
+searchForm.addEventListener('input',searchOperations)

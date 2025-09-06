@@ -247,6 +247,19 @@ section {
 .header .search label:hover {
   color: #f39c12;
 }
+.header .search-place {
+  position: absolute;
+  top: 7rem;
+  width: 80vw;
+  background: rgb(240, 216, 185);
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  transition: all 0.5s;
+}
+.header .search-place.active {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
 
 .hero {
   display: grid;
@@ -505,7 +518,7 @@ section {
 @media (max-width: 768px) {
   .header .nav {
     position: absolute;
-    top: 110%;
+    top: 5rem;
     flex-direction: column;
     width: 80%;
     align-items: center;

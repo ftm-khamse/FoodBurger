@@ -292,6 +292,21 @@ section{
         }
     }
    }
+
+   .search-place{
+    position: absolute;
+    top: 7rem;
+    width: 80vw;
+    background: rgb(240, 216, 185);
+    padding: .7rem;
+    border-radius: .5rem;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    transition: all .5s;
+
+    &.active{
+         clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+     }
+   }
 }
 
 // ==== hero styles =====
@@ -607,7 +622,7 @@ section{
         
         .nav{
               position: absolute;
-              top: 110%;
+              top: 5rem;
               flex-direction: column;
               width: 80%;
               align-items: center;
