@@ -32,6 +32,7 @@ window.onscroll = (e) => {
     shopCart.classList.remove('active');
     item.forEach((item ) => item.classList.remove('active'));
     search.classList.remove('active');
+    searchPlace.classList.remove('active');
 }
 
 // shopping basket operations
@@ -246,6 +247,7 @@ function removeFromCart(id){
 // search form operations
 const searchForm = document.getElementById('search-form');
 const searchPlace = document.querySelector('.search-place');
+
 function searchOperations(e){
     const query = e.target.value.toLowerCase();
 
@@ -261,11 +263,9 @@ function searchOperations(e){
        
             if(item.name.toLowerCase().includes(query)){
                 found = true;
-                const resault =document.createElement('p');
-                resault.textContent = item.name;
-                searchPlace.appendChild(resault);
-                
-                
+                const result =document.createElement('p');
+                result.textContent = item.name;
+                searchPlace.appendChild(result); 
             }
     });
     if(found){
@@ -276,4 +276,4 @@ function searchOperations(e){
     
 }
 
-searchForm.addEventListener('input',searchOperations)
+searchForm.addEventListener('input',searchOperations);
